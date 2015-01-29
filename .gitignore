@@ -1,0 +1,4 @@
+build/bin/*
+build/src/*
+build/include
+build/lib

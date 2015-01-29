@@ -1,0 +1,23 @@
+language: ruby
+cache:
+  apt: true
+env:
+  global:
+    - FFMPEG_VERSION=0.11.5
+    - FFMPEG_BUILD_DIR=$TRAVIS_BUILD_DIR/build
+    - FFMPEG_SRC_DIR=$FFMPEG_BUILD_DIR/src
+    - FFMPEG_BIN_DIR=$FFMPEG_BUILD_DIR/bin
+    - FFMPEG_TARBALL=$FFMPEG_BIN_DIR/ffmpeg.tar.bz2
+before_install:
+  - sudo apt-get -y update
+script:
+  - ./build.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: I9NsuwiHtqc/3am6NNxZRUh/to7bUNDEcdM/nNUMiwojr4S5oOLvCcvxtKFJ+LX93AvvTJ+6VnOmaK5g9YXwahBfkP1vtNIWHQYhv+mbOWQLYFyctU9zkQtqEbvQTCLdCs6o69UI9K1hSL1VJVICFgYCXvw0sooqFrhEpxjaEzc=
+  file: $FFMPEG_TARBALL
+  on:
+    repo: samples-of-arukoh/build_ffmpeg
+    tags: true
+    all_branches: true
