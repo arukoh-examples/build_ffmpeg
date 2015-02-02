@@ -2,7 +2,10 @@
 # https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
 
 sudo apt-get -y install autoconf automake build-essential pkg-config libtool yasm texi2html \
-  libsdl1.2-dev libva-dev libvdpau-dev libx11-dev libxext-dev libxfixes-dev zlib1g-dev
+  libsdl1.2-dev libva-dev libvdpau-dev libx11-dev libxext-dev libxfixes-dev zlib1g-dev \
+  libmp3lame-dev \
+  libx264-dev
+
 
 cd $FFMPEG_SRC_DIR
 wget http://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.bz2
@@ -15,6 +18,8 @@ PKG_CONFIG_PATH="$FFMPEG_BUILD_DIR/lib/pkgconfig" ./configure \
   --extra-cflags="-I$FFMPEG_BUILD_DIR/include" \
   --extra-ldflags="-L$FFMPEG_BUILD_DIR/lib" \
   --bindir="$FFMPEG_BIN_DIR" \
+  --enable-libmp3lame \
+  --enable-libx264 \
   --enable-gpl \
   --enable-x11grab
 make
