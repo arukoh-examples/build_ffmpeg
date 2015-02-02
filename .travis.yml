@@ -4,7 +4,7 @@ cache:
 env:
   global:
     - FFMPEG_VERSION=0.11.5
-    - FFMPEG_BUILD_DIR=$TRAVIS_BUILD_DIR/build
+    - FFMPEG_BUILD_DIR=$HOME/build
     - FFMPEG_SRC_DIR=$FFMPEG_BUILD_DIR/src
     - FFMPEG_BIN_DIR=$FFMPEG_BUILD_DIR/bin
     - FFMPEG_TARBALL=$FFMPEG_BIN_DIR/ffmpeg.tar.bz2

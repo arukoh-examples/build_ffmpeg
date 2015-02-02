@@ -6,6 +6,10 @@ sudo apt-get -y install autoconf automake build-essential pkg-config libtool yas
   libmp3lame-dev \
   libx264-dev
 
+mkdir -p $FFMPEG_BUILD_DIR
+mkdir -p $FFMPEG_BIN_DIR
+mkdir -p $FFMPEG_SRC_DIR
+cp build/*.patch $FFMPEG_BUILD_DIR
 
 cd $FFMPEG_SRC_DIR
 wget http://ffmpeg.org/releases/ffmpeg-$FFMPEG_VERSION.tar.bz2
@@ -29,3 +33,4 @@ hash -r
 
 cd $FFMPEG_BIN_DIR
 tar cfvj $FFMPEG_TARBALL ffmpeg ffplay ffprobe ffserver
+ls -l $FFMPEG_BIN_DIR
